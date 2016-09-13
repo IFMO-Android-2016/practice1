@@ -162,5 +162,18 @@
             android:layout_gravity="center_horizontal"
             android:padding="16dp"
             android:text="@string/do_calc_iv"/>
+
+        <TextView
+            android:id="@+id/text_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:singleLine="false"
+            android:visibility="gone"
+            android:fontFamily="monospace"
+            android:textSize="14sp"
+            android:textColor="#333"
+            android:padding="8dp"
+            android:background="@drawable/rounded_corners_bg"/>
     </LinearLayout>
 </ScrollView>
