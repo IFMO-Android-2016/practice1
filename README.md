@@ -166,11 +166,11 @@ HP = stamina * SQRT(level_factor) = 182 * SQRT(0.2676979035) = 94.1659458378346
 
 Создать верстку основного экрана приложения, которому соответствует класс PokeCalcActivity. Для этого создайте XML файл в папке layout и используйте его для инициализации экрана в методе PokeCalcActivity.onCreate(). На экране должны быть следующие элементы:
 
-* Выпадающий список с названиями покемонов (использовать Spinner)
-* Изображение покемона (ImageView)
-* Поля ввода значений Stardust, CP, HP (EditText)
-* Описание полей (TextView)
-* Кнопка, запускающая вычисление (Button)
+* Выпадающий список с названиями покемонов (использовать [Spinner](https://developer.android.com/guide/topics/ui/controls/spinner.html))
+* Изображение покемона ([ImageView](https://developer.android.com/reference/android/widget/ImageView.html))
+* Поля ввода значений Stardust, CP, HP ([EditText](https://developer.android.com/guide/topics/ui/controls/text.html))
+* Описание полей ([TextView](https://developer.android.com/reference/android/widget/TextView.html))
+* Кнопка, запускающая вычисление ([Button](https://developer.android.com/reference/android/widget/Button.html))
 
 Для организации верстки могут понадобиться классы LinearLayout, RelativeLayout, FrameLayout, асли все необходимые элементы не будут помещаться на экране, то может понадобиться ScrollView.
 
@@ -189,6 +189,7 @@ HP = stamina * SQRT(level_factor) = 182 * SQRT(0.2676979035) = 94.1659458378346
 int[] pokemonImageIds = getResources().obtainTypedArray(R.array.pokemon_images);
 int imageResId = pokemonImageIds[position]; // position берется из обработчика Spinner.OnItemSelectedListener
 ```
+О доступе к ресурсам можно почитать [здесь](https://developer.android.com/guide/topics/resources/accessing-resources.html)
 
 ### 3 Обработка клика и вычисление
 
