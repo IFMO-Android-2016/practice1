@@ -211,6 +211,30 @@ int baseDefense = getResources().getIntArray(R.array.pokemon_defense)[position];
 
 <img src="https://github.com/dtrounine/pokecalc/blob/master/screenshots/output_layout.png" width="360px"/>
 
+Для тестирования и отладки можно использовать следующие варианты входных данных (либо брать прямо из игры Pokemon Go):
+
+<details>
+  <summary>Данные</summary>
+Pokemon | Stardust | CP | HP
+------- | -------- | -- | --
+Abra | 800 | 104 | 20
+Bellsprout | 1000 | 268 | 42
+Clefairy | 1600 | 378 | 72
+Cubone | 2200 | 499 | 64
+Drowzee | 2500 | 577 | 75
+Eevee | 800 | 215 | 41
+Exeggcute | 1900 | 462 | 67
+Horsea | 1300 | 248 | 31
+Magikarp | 2500 | 106 | 23
+Nidorino | 400 | 90 | 28
+Pikachu | 1900 | 360 | 41
+Psyduck | 2200 | 494 | 64
+Psyduck | 1600 | 382 | 55
+Psyduck | 1600 | 350 | 54
+Psyduck | 1300 | 330 | 48
+</details>
+
+
 ### 4 Восстановление состояния
 
 Как мы знаем, в Android активность может быть уничтожена и создана снова почти в любой момент времени по многим разным причинам. Простейший случай -- это поворот экрана. Когда поворочивается экран (или вообще происходит событие типа configuration change), активность со всеми View уничтожается и создается снова с нуля. В нашем приложение это может иметь такой эффект: если до поворота экрана пользователь уже нажал "Вычислить", и на экране был отображен результат, то после поворота этот результат исчезает, потому что вся верстка была создана с нуля. Это не нормально, потому что при повороте должно сохраняться состояние экрана. Подробнее о сохранении и восстановлении состояния можно прочитать здесь: [https://developer.android.com/guide/topics/resources/runtime-changes.html](https://developer.android.com/guide/topics/resources/runtime-changes.html)
@@ -219,4 +243,7 @@ int baseDefense = getResources().getIntArray(R.array.pokemon_defense)[position];
 
 ### 5 Поддержка разных конфигураций экрана
 
-TODO
+Создайте альтернативный вариант верстки для экрана в ландшафтной ориентации. Для этого создайте папку layout-land, а в ней файл верстки с тем же названием, что и в дефолтной конфигурации. Верстка должна содержать те же основные элементы с теми же ID, но располагаться они могут по-другому. Возможный вариант верстки может выглядеть так:
+
+<img src="https://github.com/dtrounine/pokecalc/blob/master/screenshots/poke_calc_layout_land.png" width="720px"/>
+
