@@ -29,6 +29,13 @@ public class PokeCalcActivity extends AppCompatActivity implements
 
     TypedArray pokemonImageIds;
 
+    CharSequence outputText;
+
+    /**
+     * Key for saving/restoring the output text as CharSequence
+     */
+    private static final String KEY_OUTPUT_TEXT = "output_text";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +54,14 @@ public class PokeCalcActivity extends AppCompatActivity implements
         pokemonSpinnerView.setOnItemSelectedListener(this);
 
         pokemonImageIds = getResources().obtainTypedArray(R.array.pokemon_images);
+
+        if (savedInstanceState != null) {
+            outputText = savedInstanceState.getCharSequence(KEY_OUTPUT_TEXT, null);
+            if (outputText != null) {
+                outputTextView.setVisibility(View.VISIBLE);
+                outputTextView.setText(outputText);
+            }
+        }
     }
 
     @Override
@@ -135,6 +150,8 @@ public class PokeCalcActivity extends AppCompatActivity implements
                     .append('\n');
         }
 
+        this.outputText = text;
+
         outputTextView.setVisibility(View.VISIBLE);
         outputTextView.setText(text);
         outputTextView.post(new Runnable() {
@@ -145,6 +162,12 @@ public class PokeCalcActivity extends AppCompatActivity implements
 
             }
         });
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putCharSequence(KEY_OUTPUT_TEXT, outputText);
     }
 
     private int getInt(TextView textView, int defaultValue) {
