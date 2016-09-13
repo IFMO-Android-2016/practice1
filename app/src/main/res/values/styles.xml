@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextAppearance_InputError">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@android:color/holo_red_light</item>
+    </style>
+
 </resources>

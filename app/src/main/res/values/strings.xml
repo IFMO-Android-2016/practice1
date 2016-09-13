@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Калькулятор Покемонов</string>
+
+    <string name="powerup_cost">Stardust</string>
+    <string name="do_calc_iv">Вычислить IV</string>
+    <string name="cp">CP</string>
+    <string name="hp">HP</string>
+    <string name="invalid_value">Ошибка</string>
 </resources>
