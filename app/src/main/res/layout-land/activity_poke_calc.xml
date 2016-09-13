@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrol_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cyan_100"
+    tools:context="ru.dtrunin.ifmodroid.pokecalc.PokeCalcActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/pokemon_img"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerInside"
+            android:background="@drawable/rounded_corners_bg"/>
+
+        <Spinner
+            android:id="@+id/pokemon_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/pokemon_img"
+            android:layout_alignTop="@id/pokemon_img"
+            android:layout_marginLeft="16dp"
+            android:minHeight="24dp"
+            android:minWidth="160dp"
+            android:textSize="24sp"
+            android:padding="8dp"
+            android:entries="@array/pokemon_names"/>
+
+        <RelativeLayout
+            android:id="@+id/powerup_block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pokemon_spinner"
+            android:layout_alignLeft="@id/pokemon_spinner"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/powerup_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:textSize="@dimen/prompt_text_size"
+                android:text="@string/powerup_cost"/>
+
+            <EditText
+                android:id="@+id/powerup_cost_text"
+                android:layout_width="wrap_content"
+                android:minWidth="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/powerup_label"
+                android:layout_alignBaseline="@id/powerup_label"
+                android:inputType="number"/>
+
+            <TextView
+                android:id="@+id/powerup_error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:layout_below="@id/powerup_cost_text"
+                android:layout_alignLeft="@id/powerup_cost_text"
+                android:paddingLeft="4dp"
+                android:textAppearance="@style/TextAppearance_InputError"
+                android:text="@string/invalid_value"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cp_block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/powerup_block"
+            android:layout_alignLeft="@id/powerup_block"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/cp_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:textSize="@dimen/prompt_text_size"
+                android:text="@string/cp"/>
+
+            <EditText
+                android:id="@+id/cp_text"
+                android:layout_width="wrap_content"
+                android:minWidth="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@id/cp_label"
+                android:layout_alignBaseline="@id/cp_label"
+                android:inputType="number"/>
+
+            <TextView
+                android:id="@+id/cp_error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:layout_below="@id/cp_text"
+                android:layout_alignLeft="@id/cp_text"
+                android:paddingLeft="4dp"
+                android:textAppearance="@style/TextAppearance_InputError"
+                android:text="@string/invalid_value"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/hp_block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/cp_block"
+            android:layout_alignTop="@id/cp_block"
+            android:layout_marginLeft="8dp">
+
+            <TextView
+                android:id="@+id/hp_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:textSize="@dimen/prompt_text_size"
+                android:text="@string/hp"/>
+
+            <EditText
+                android:id="@+id/hp_text"
+                android:layout_width="wrap_content"
+                android:minWidth="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@id/hp_label"
+                android:layout_alignBaseline="@id/hp_label"
+                android:inputType="number"/>
+
+            <TextView
+                android:id="@+id/hp_error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:layout_below="@id/hp_text"
+                android:layout_alignLeft="@id/hp_text"
+                android:paddingLeft="4dp"
+                android:textAppearance="@style/TextAppearance_InputError"
+                android:text="@string/invalid_value"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/button_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/cp_block"
+            android:layout_below="@id/cp_block"
+            android:layout_marginTop="20dp">
+
+            <Button
+                android:id="@+id/do_calc_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:text="@string/do_calc_iv"/>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/text_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pokemon_img"
+            android:layout_marginTop="16dp"
+            android:singleLine="false"
+            android:visibility="gone"
+            android:fontFamily="monospace"
+            android:textSize="14sp"
+            android:textColor="#333"
+            android:padding="8dp"
+            android:background="@drawable/rounded_corners_bg"/>
+
+    </RelativeLayout>
+</ScrollView>
