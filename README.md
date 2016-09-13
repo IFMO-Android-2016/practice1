@@ -216,8 +216,8 @@ int baseDefense = getResources().getIntArray(R.array.pokemon_defense)[position];
 <details>
   <summary>Данные</summary>
   
-Pokemon | Stardust | CP | HP
-------- | -------- | -- | --
+Pokemon | Stardust | Cp | Hp
+--------|----------|----|----
 Abra | 800 | 104 | 20
 Bellsprout | 1000 | 268 | 42
 Clefairy | 1600 | 378 | 72
@@ -233,7 +233,6 @@ Psyduck | 2200 | 494 | 64
 Psyduck | 1600 | 382 | 55
 Psyduck | 1600 | 350 | 54
 Psyduck | 1300 | 330 | 48
-
 </details>
 
 
