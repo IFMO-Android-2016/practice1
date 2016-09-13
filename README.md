@@ -166,11 +166,11 @@ HP = stamina * SQRT(level_factor) = 182 * SQRT(0.2676979035) = 94.1659458378346
 
 Создать верстку основного экрана приложения, которому соответствует класс PokeCalcActivity. Для этого создайте XML файл в папке layout и используйте его для инициализации экрана в методе PokeCalcActivity.onCreate(). На экране должны быть следующие элементы:
 
-* Выпадающий список с названиями покемонов (использовать Spinner)
-* Изображение покемона (ImageView)
-* Поля ввода значений Stardust, CP, HP (EditText)
-* Описание полей (TextView)
-* Кнопка, запускающая вычисление (Button)
+* Выпадающий список с названиями покемонов (использовать [Spinner](https://developer.android.com/guide/topics/ui/controls/spinner.html))
+* Изображение покемона ([ImageView](https://developer.android.com/reference/android/widget/ImageView.html))
+* Поля ввода значений Stardust, CP, HP ([EditText](https://developer.android.com/guide/topics/ui/controls/text.html))
+* Описание полей ([TextView](https://developer.android.com/reference/android/widget/TextView.html))
+* Кнопка, запускающая вычисление ([Button](https://developer.android.com/reference/android/widget/Button.html))
 
 Для организации верстки могут понадобиться классы LinearLayout, RelativeLayout, FrameLayout, асли все необходимые элементы не будут помещаться на экране, то может понадобиться ScrollView.
 
@@ -189,6 +189,7 @@ HP = stamina * SQRT(level_factor) = 182 * SQRT(0.2676979035) = 94.1659458378346
 int[] pokemonImageIds = getResources().obtainTypedArray(R.array.pokemon_images);
 int imageResId = pokemonImageIds[position]; // position берется из обработчика Spinner.OnItemSelectedListener
 ```
+О доступе к ресурсам можно почитать [здесь](https://developer.android.com/guide/topics/resources/accessing-resources.html)
 
 ### 3 Обработка клика и вычисление
 
@@ -211,6 +212,31 @@ int baseDefense = getResources().getIntArray(R.array.pokemon_defense)[position];
 
 <img src="https://github.com/dtrounine/pokecalc/blob/master/screenshots/output_layout.png" width="360px"/>
 
+Для тестирования и отладки можно использовать следующие варианты входных данных (либо брать прямо из игры Pokemon Go):
+
+<details>
+  <summary>Данные</summary>
+  
+Pokemon | Stardust | Cp | Hp
+--------|----------|----|----
+Abra | 800 | 104 | 20
+Bellsprout | 1000 | 268 | 42
+Clefairy | 1600 | 378 | 72
+Cubone | 2200 | 499 | 64
+Drowzee | 2500 | 577 | 75
+Eevee | 800 | 215 | 41
+Exeggcute | 1900 | 462 | 67
+Horsea | 1300 | 248 | 31
+Magikarp | 2500 | 106 | 23
+Nidorino | 400 | 90 | 28
+Pikachu | 1900 | 360 | 41
+Psyduck | 2200 | 494 | 64
+Psyduck | 1600 | 382 | 55
+Psyduck | 1600 | 350 | 54
+Psyduck | 1300 | 330 | 48
+</details>
+
+
 ### 4 Восстановление состояния
 
 Как мы знаем, в Android активность может быть уничтожена и создана снова почти в любой момент времени по многим разным причинам. Простейший случай -- это поворот экрана. Когда поворочивается экран (или вообще происходит событие типа configuration change), активность со всеми View уничтожается и создается снова с нуля. В нашем приложение это может иметь такой эффект: если до поворота экрана пользователь уже нажал "Вычислить", и на экране был отображен результат, то после поворота этот результат исчезает, потому что вся верстка была создана с нуля. Это не нормально, потому что при повороте должно сохраняться состояние экрана. Подробнее о сохранении и восстановлении состояния можно прочитать здесь: [https://developer.android.com/guide/topics/resources/runtime-changes.html](https://developer.android.com/guide/topics/resources/runtime-changes.html)
@@ -219,4 +245,7 @@ int baseDefense = getResources().getIntArray(R.array.pokemon_defense)[position];
 
 ### 5 Поддержка разных конфигураций экрана
 
-TODO
+Создайте альтернативный вариант верстки для экрана в ландшафтной ориентации. Для этого создайте папку layout-land, а в ней файл верстки с тем же названием, что и в дефолтной конфигурации. Верстка должна содержать те же основные элементы с теми же ID, но располагаться они могут по-другому. Возможный вариант верстки может выглядеть так:
+
+<img src="https://github.com/dtrounine/pokecalc/blob/master/screenshots/poke_calc_layout_land.png" width="720px"/>
+
